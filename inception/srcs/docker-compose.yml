@@ -1,0 +1,54 @@
+version: '3'
+volumes:
+    mariadb:
+        driver: local
+        driver_opts:
+            device: /home/halaqoh/data/mariadb
+            o: bind
+            type: none
+    wordpress:
+        driver: local
+        driver_opts:
+            device: /home/halaqoh/data/web
+            o: bind
+            type: none
+services:
+    nginx:
+        image: my_nginx
+        container_name: nginx_cont
+        ports:
+            - '443:443'
+        build: ./requirements/nginx/
+        depends_on:
+            - wordpress
+        networks:
+            - my_net
+        volumes:
+            - "wordpress:/var/www/html"
+        restart: always
+    wordpress:
+        image: my_wordpress
+        container_name: wordpress_cont
+        depends_on:
+            - mariadb
+        build: ./requirements/wordpress/
+        networks:
+            - my_net
+        volumes:
+            - "wordpress:/var/www/html"
+        env_file:
+            - .env
+        restart: always
+    mariadb:
+        image: my_mariadb
+        container_name: mariadb_cont
+        build: ./requirements/mariadb/
+        networks:
+            - my_net
+        volumes:
+            - "mariadb:/var/lib/mysql"
+        env_file:
+            - .env
+        restart: always
+networks:
+    my_net:
