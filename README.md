@@ -7,7 +7,7 @@
 ![Screenshot from 2023-09-16 11-49-15](https://github.com/justr0ma/1337-Inception/assets/112334569/0b9fb278-d47d-42d7-94de-37dba0e0bfd1)
 
 # Setup Instructions
-Clone the repository
+1. Clone the repository
 1. RUN make
 1. go to https://localhost:443 to see the wordpress page
 1. http://localhost:82 to see the static website
