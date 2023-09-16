@@ -8,8 +8,8 @@
 
 # Setup Instructions
 Clone the repository
-RUN make
-go to https://localhost:443 to see the wordpress page
-http://localhost:82 to see the static website
+1. RUN make
+1. go to https://localhost:443 to see the wordpress page
+1. http://localhost:82 to see the static website
 
 [Inception](https://cdn.intra.42.fr/pdf/pdf/83222/en.subject.pdf)https://cdn.intra.42.fr/pdf/pdf/83222/en.subject.pdf
